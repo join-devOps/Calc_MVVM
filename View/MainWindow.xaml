@@ -1,0 +1,55 @@
+﻿<Window x:Class="Calc_MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calc_MVVM"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="400" Width="400" FontSize="24">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Выберите арифметическую операцию"
+               Grid.Row="0" Grid.ColumnSpan="2"
+               Style="{StaticResource justLabel_Style}"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"/>
+        <ComboBox ItemsSource="{Binding OperationsList}"
+                  SelectedIndex="{Binding Operations_SelectedIndex}"
+                  Grid.Row="1" Grid.ColumnSpan="2"
+                  VerticalContentAlignment="Center"
+                  HorizontalContentAlignment="Center"/>
+        <TextBox Text="{Binding A}"
+                 Grid.Row="2" Grid.Column="0"
+                 Height="35" Width="100"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"/>
+        <Label Content="{Binding Operation_SelectedIndex}" Grid.Row="2" Grid.ColumnSpan="2"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding B}"
+                 Grid.Row="2" Grid.Column="1"
+                 Height="35" Width="100"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"/>
+        <Button Content="Вычислить"
+                Command="{Binding Command}"
+                Grid.Row="3" Grid.ColumnSpan="2"/>
+
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
+            <Label Content="Результат:"/>
+            <TextBox Text="{Binding Result}" IsEnabled="False"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>
