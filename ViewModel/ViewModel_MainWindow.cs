@@ -19,20 +19,13 @@ namespace Calc_MVVM.ViewModel
             {
                 index = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Operations_SelectedItem"));
+                PropertyChanged(this, new PropertyChangedEventArgs("Operation_SelectedItem"));
             }
         }
 
         public string Operations_SelectedItem
         {
             get { return OperationsList[index]; }
-        }
-
-        public byte Operation_SelectedIndex
-        {
-            set
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs("Operation_SelectedItem"));
-            }
         }
 
         public char Operation_SelectedItem

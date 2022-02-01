@@ -33,7 +33,7 @@
                  Height="35" Width="100"
                  VerticalContentAlignment="Center"
                  HorizontalContentAlignment="Center"/>
-        <Label Content="{Binding Operation_SelectedIndex}" Grid.Row="2" Grid.ColumnSpan="2"
+        <Label Content="{Binding Operation_SelectedItem}" Grid.Row="2" Grid.ColumnSpan="2"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"/>
         <TextBox Text="{Binding B}"
